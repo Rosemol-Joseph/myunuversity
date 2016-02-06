@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'register'
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -115,8 +116,23 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (MEDIA_ROOT,)
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'dash'
+RECOVER_ONLY_ACTIVE_USERS = False
+ACCOUNT_ACTIVATION_DAYS = 2
+ANONYMOUS_USER_ID = -1
+AUTH_USER_MODEL = "register.User"
+
+SITE_ID = 1
+
